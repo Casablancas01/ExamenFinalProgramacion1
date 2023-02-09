@@ -66,12 +66,12 @@ namespace POOPersonas2022.Datos
         #region Manipulador de la lista
         public void Agregar(Persona entidad)
         {
-
+            hayCambios=true;
             lista.Add(entidad);
         }
         public void Borrar(Persona entidad)
         {
-
+            hayCambios=true;
             lista.Remove(entidad);
         }
         public int GetCantidad()
@@ -87,9 +87,10 @@ namespace POOPersonas2022.Datos
         #region Archivos Secuenciales 
         public void Guardar()
         {
-            
-                ManejadorArchivoSecuencial.GuardarEnArchivo(lista);
-            
+            if(hayCambios)
+            {
+         ManejadorArchivoSecuencial.GuardarEnArchivo(lista);
+            }
         }
         #endregion
 
